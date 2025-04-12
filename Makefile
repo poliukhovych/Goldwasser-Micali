@@ -1,6 +1,10 @@
 CC = g++
-CFLAGS = -Wall -std=c++20 -I/opt/homebrew/Cellar/botan/3.7.1/include/botan-3
-LDFLAGS = -L/opt/homebrew/Cellar/botan/3.7.1/lib -lbotan-3
+CFLAGS = -Wall -std=c++20
+
+BOTAN_PREFIX ?= /opt/homebrew/Cellar/botan/3.7.1
+CFLAGS += -I$(BOTAN_PREFIX)/include/botan-3
+LDFLAGS = -L$(BOTAN_PREFIX)/lib -lbotan-3
+
 OBJS = main.o goldwasser-micali.o
 EXECUTABLE = goldwasser-micali
 
